@@ -1,0 +1,56 @@
+baseURL: "https://liyongzheng666.github.io/"
+languageCode: "zh-CN"
+defaultContentLanguage: "zh-cn"
+title: "Ally 的个人博客"
+theme: "hextra"
+hasCJKLanguage: true
+enableRobotsTXT: true
+
+menu:
+  main:
+    - name: 首页
+      pageRef: /
+      weight: 1
+    - name: 博客
+      pageRef: /blog
+      weight: 2
+    - name: 关于
+      pageRef: /about
+      weight: 3
+    - name: 搜索
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      url: "https://github.com/liyongzheng666"
+      weight: 5
+      params:
+        icon: github
+
+params:
+  description: "记录技术、写作与日常思考。"
+  navbar:
+    displayTitle: true
+    displayLogo: false
+  theme:
+    default: system
+    displayToggle: true
+  search:
+    enable: true
+    type: flexsearch
+  blog:
+    list:
+      displayTags: true
+      sortBy: date
+      sortOrder: desc
+    article:
+      displayPagination: true
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
