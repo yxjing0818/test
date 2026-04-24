@@ -11,24 +11,27 @@ menu:
     - name: 首页
       pageRef: /
       weight: 1
+    - name: 项目
+      pageRef: /projects
+      weight: 2
     - name: 博客
       pageRef: /blog
-      weight: 2
+      weight: 3
     - name: 关于
       pageRef: /about
-      weight: 3
-    - name: 搜索
       weight: 4
+    - name: 搜索
+      weight: 5
       params:
         type: search
     - name: GitHub
       url: "https://github.com/liyongzheng666"
-      weight: 5
+      weight: 6
       params:
         icon: github
 
 params:
-  description: "记录技术、写作与日常思考。"
+  description: "记录技术、写作、项目与静态网页作品。"
   navbar:
     displayTitle: true
     displayLogo: false
