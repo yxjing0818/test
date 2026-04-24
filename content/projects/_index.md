@@ -1,30 +1,437 @@
 ---
 title: 项目索引
 description: 统一查看 Ally 的静态网页项目与相关远端仓库。
+layout: wide
 ---
 
-这里整理的是远端仓库里已经能直接访问的静态网页项目。它们按用途分组，既可以从这里进入成品页面，也可以回到对应 GitHub 仓库看源码。
+<style>
+  .project-page {
+    max-width: 1180px;
+    margin: 0 auto 4rem;
+  }
 
-## 可交互工具
+  .project-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.55fr);
+    gap: 1.5rem;
+    align-items: end;
+    margin: 1.25rem 0 2rem;
+    padding: 1.4rem 0 1.8rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  }
 
-{{< cards cols="1" >}}
-  {{< card link="https://liyongzheng666.github.io/Print/" title="3D Graph Visualization" icon="cube" tag="已上线" tagType="info" subtitle="基于 HTML5 Canvas 和 JavaScript 的 2D / 3D 边数据可视化工具，支持 JSON 数据加载、旋转缩放、同步高亮与标签搜索。 · [源码](https://github.com/liyongzheng666/Print)" >}}
-{{< /cards >}}
+  .project-kicker,
+  .project-meta {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f766e;
+    font-weight: 700;
+  }
 
-## 终端环境指南
+  .project-hero h2 {
+    margin: 0.45rem 0 0.7rem;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+  }
 
-{{< cards cols="2" >}}
-  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" title="Fish Terminal Setup Guide" icon="terminal" tag="已上线" tagType="info" subtitle="从 Terminal-setup 中拆出的 Fish 终端快捷键与环境配置分享页。 · [源码](https://github.com/liyongzheng666/fish-terminal-setup-guide-pages)" >}}
-  {{< card link="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" title="tmux + Ghostty Guide" icon="desktop-computer" tag="已上线" tagType="info" subtitle="面向 Mac + Ghostty 用户的 tmux 新手分享页，适合快速回看键位和工作流。 · [源码](https://github.com/liyongzheng666/tmux-ghostty-guide-pages)" >}}
-{{< /cards >}}
+  .project-hero p,
+  .project-section-lead {
+    color: #52606d;
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+  }
 
-## 博客与总入口
+  .project-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
 
-{{< cards cols="2" >}}
-  {{< card link="https://liyongzheng666.github.io/" title="Ally 的个人博客" icon="book-open" tag="本站" subtitle="项目入口、博客文章、关于页面和后续长期内容的统一首页。 · [源码](https://github.com/liyongzheng666/liyongzheng666.github.io)" >}}
-  {{< card link="https://github.com/liyongzheng666/Terminal-setup" title="Terminal-setup" icon="code" tag="相关仓库" subtitle="macOS 终端环境一键配置脚本，是 Fish 指南页的上游资料来源。" >}}
-{{< /cards >}}
+  .project-stat {
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem;
+    background: rgba(248, 250, 252, 0.7);
+  }
 
-## 暂未做成网页的仓库
+  .project-stat strong {
+    display: block;
+    font-size: 1.45rem;
+    line-height: 1;
+    color: #111827;
+  }
 
-- [claude-](https://github.com/liyongzheng666/claude-)：学习资料与本地研究内容，当前没有 GitHub Pages 配置。
+  .project-stat span {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    color: #64748b;
+  }
+
+  .project-section {
+    margin-top: 2.2rem;
+  }
+
+  .project-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-section-head h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .project-grid {
+    display: grid;
+    gap: 1.15rem;
+  }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  }
+
+  .project-shot {
+    min-height: 100%;
+    background: #eef2f7;
+    border-right: 1px solid rgba(148, 163, 184, 0.22);
+  }
+
+  .project-shot img {
+    width: 100%;
+    height: 100%;
+    min-height: 290px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .project-shot-fit img {
+    object-fit: contain;
+    background: #edf7fb;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    padding: 1.35rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .project-tag {
+    border: 1px solid rgba(20, 184, 166, 0.28);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    color: #0f766e;
+    background: rgba(240, 253, 250, 0.9);
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.45rem;
+    line-height: 1.24;
+  }
+
+  .project-info p {
+    margin: 0.8rem 0 1rem;
+    color: #4b5563;
+    line-height: 1.72;
+  }
+
+  .project-note {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.24);
+    color: #64748b;
+    font-size: 0.88rem;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.1rem;
+  }
+
+  .project-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.35rem;
+    border-radius: 7px;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    color: #111827;
+    background: #fff;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+
+  .project-action:hover {
+    transform: translateY(-1px);
+    border-color: rgba(15, 118, 110, 0.45);
+    background: #f8fafc;
+  }
+
+  .project-action-primary {
+    color: #fff;
+    border-color: #0f766e;
+    background: #0f766e;
+  }
+
+  .project-action-primary:hover {
+    color: #fff;
+    background: #115e59;
+  }
+
+  .repo-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .repo-item {
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(248, 250, 252, 0.65);
+  }
+
+  .repo-item h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+  }
+
+  .repo-item p {
+    margin: 0 0 0.7rem;
+    color: #52606d;
+    line-height: 1.65;
+  }
+
+  .repo-item a {
+    font-weight: 650;
+    color: #0f766e;
+    text-decoration: none;
+  }
+
+  .dark .project-card,
+  .dark .project-stat,
+  .dark .repo-item,
+  .dark .project-action {
+    background: rgba(23, 23, 23, 0.86);
+    border-color: rgba(115, 115, 115, 0.38);
+  }
+
+  .dark .project-hero {
+    border-color: rgba(115, 115, 115, 0.32);
+  }
+
+  .dark .project-hero p,
+  .dark .project-section-lead,
+  .dark .project-info p,
+  .dark .project-note,
+  .dark .repo-item p,
+  .dark .project-stat span {
+    color: #a3a3a3;
+  }
+
+  .dark .project-stat strong,
+  .dark .project-action {
+    color: #f5f5f5;
+  }
+
+  .dark .project-shot {
+    border-color: rgba(115, 115, 115, 0.38);
+    background: #171717;
+  }
+
+  .dark .project-action-primary {
+    color: #fff;
+    background: #0f766e;
+    border-color: #0f766e;
+  }
+
+  @media (max-width: 900px) {
+    .project-hero,
+    .project-card,
+    .repo-list {
+      grid-template-columns: 1fr;
+    }
+
+    .project-section-head {
+      display: block;
+    }
+
+    .project-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-shot {
+      border-right: 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .project-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .project-info {
+      padding: 1rem;
+    }
+
+    .project-action {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+{{< rawhtml >}}
+<div class="project-page">
+  <section class="project-hero">
+    <div>
+      <div class="project-kicker">GitHub Pages Portfolio</div>
+      <h2>把散落的静态网页收进一个书架</h2>
+      <p>这里放的是已经能直接打开的远端静态页面。每个项目都配了一张真实预览图，下面按工具、指南和资料入口分组，方便快速回看。</p>
+    </div>
+    <div class="project-stats" aria-label="项目统计">
+      <div class="project-stat"><strong>3</strong><span>已上线页面</span></div>
+      <div class="project-stat"><strong>2</strong><span>终端指南</span></div>
+      <div class="project-stat"><strong>1</strong><span>交互工具</span></div>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="project-section-head">
+      <div>
+        <div class="project-meta">Interactive Tool</div>
+        <h2>可交互工具</h2>
+      </div>
+      <p class="project-section-lead">能在浏览器里直接操作、观察结果的页面。</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <a class="project-shot" href="https://liyongzheng666.github.io/Print/" target="_blank" rel="noreferrer" aria-label="打开 3D Graph Visualization">
+          <img src="/images/projects/print.png" alt="3D Graph Visualization 的双视图边数据可视化截图" loading="eager" decoding="sync">
+        </a>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Canvas</span>
+            <span class="project-tag">JSON Viewer</span>
+            <span class="project-tag">已上线</span>
+          </div>
+          <h3>3D Graph Visualization</h3>
+          <p>基于 HTML5 Canvas 和 JavaScript 的 2D / 3D 边数据可视化工具，支持 JSON 数据加载、旋转缩放、同步高亮与标签搜索。</p>
+          <div class="project-actions">
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/Print/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/Print" target="_blank" rel="noreferrer">查看源码</a>
+          </div>
+          <div class="project-note">适合调试边、点、重叠线段和 2D / 3D 映射关系。</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="project-section-head">
+      <div>
+        <div class="project-meta">Terminal Notes</div>
+        <h2>终端环境指南</h2>
+      </div>
+      <p class="project-section-lead">偏博客分享页，适合给自己和别人当速查入口。</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <a class="project-shot" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" target="_blank" rel="noreferrer" aria-label="打开 Fish Terminal Setup Guide">
+          <img src="/images/projects/fish-terminal.png" alt="Fish Terminal Setup Guide 首页截图" loading="eager" decoding="sync">
+        </a>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Fish</span>
+            <span class="project-tag">快捷键</span>
+            <span class="project-tag">GitHub Pages</span>
+          </div>
+          <h3>Fish Terminal Setup Guide</h3>
+          <p>从 Terminal-setup 中拆出的 Fish 终端快捷键与环境配置分享页，按范围、接入清单、键盘快捷键和命令捷径整理。</p>
+          <div class="project-actions">
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages" target="_blank" rel="noreferrer">查看源码</a>
+          </div>
+          <div class="project-note">上游资料来自 Terminal-setup 仓库，页面偏速查和分享。</div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <a class="project-shot project-shot-fit" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer" aria-label="打开 tmux + Ghostty Guide">
+          <img src="/images/projects/tmux-ghostty.png" alt="tmux 与 Ghostty 新手指南预览图" loading="eager" decoding="sync">
+        </a>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">tmux</span>
+            <span class="project-tag">Ghostty</span>
+            <span class="project-tag">新手指南</span>
+          </div>
+          <h3>tmux + Ghostty Guide</h3>
+          <p>面向 Mac + Ghostty 用户的 tmux 入门分享页，用 session / window / pane 三层结构解释终端工作区。</p>
+          <div class="project-actions">
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/tmux-ghostty-guide-pages" target="_blank" rel="noreferrer">查看源码</a>
+          </div>
+          <div class="project-note">更像一份可以转发给新手的像素风终端分享稿。</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="project-section-head">
+      <div>
+        <div class="project-meta">Sources & Backlog</div>
+        <h2>相关仓库与待网页化内容</h2>
+      </div>
+    </div>
+
+    <div class="repo-list">
+      <article class="repo-item">
+        <h3>Terminal-setup</h3>
+        <p>macOS 终端环境一键配置脚本，也是 Fish 指南页的上游资料来源。</p>
+        <a href="https://github.com/liyongzheng666/Terminal-setup" target="_blank" rel="noreferrer">查看仓库 ↗</a>
+      </article>
+      <article class="repo-item">
+        <h3>claude-</h3>
+        <p>学习资料与本地研究内容，当前没有 GitHub Pages 配置，所以先放进待整理区。</p>
+        <a href="https://github.com/liyongzheng666/claude-" target="_blank" rel="noreferrer">查看仓库 ↗</a>
+      </article>
+    </div>
+  </section>
+</div>
+{{< /rawhtml >}}
