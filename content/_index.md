@@ -26,10 +26,11 @@ layout: hextra-home
 ## 最新整理
 
 {{< cards cols="3" >}}
-  {{< card link="/blog/claude-code-training/" title="Claude Code 命令培训" icon="terminal" tag="新文章" tagType="info" subtitle="系统学习 Claude Code CLI、斜杠命令、权限模式、MCP、Hooks 与日常工作流。" >}}
+  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" title="终端与 AI 工具网页书架" icon="collection" tag="统一入口" tagType="info" subtitle="Fish、tmux、Codex、Claude Code 等学习网页现在统一维护在一个静态仓库。" >}}
+  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/claude-code-training/" title="Claude Code 命令培训" icon="terminal" tag="网页指南" tagType="info" subtitle="系统学习 Claude Code CLI、斜杠命令、权限模式、MCP、Hooks 与日常工作流。" >}}
   {{< card link="https://liyongzheng666.github.io/Print/" title="3D Graph Visualization" icon="cube" tag="工具" tagType="info" subtitle="浏览器里的 2D / 3D 边数据可视化工具。" >}}
-  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" title="Fish Terminal Setup Guide" icon="terminal" tag="指南" subtitle="Fish 终端快捷键与环境配置速查。" >}}
-  {{< card link="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" title="tmux + Ghostty Guide" icon="desktop-computer" tag="指南" subtitle="面向 Mac + Ghostty 用户的 tmux 入门分享页。" >}}
+  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/fish-terminal-setup/" title="Fish Terminal Setup Guide" icon="terminal" tag="指南" subtitle="Fish 终端快捷键与环境配置速查。" >}}
+  {{< card link="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/tmux-ghostty-guide/" title="tmux + Ghostty Guide" icon="desktop-computer" tag="指南" subtitle="面向 Mac + Ghostty 用户的 tmux 入门分享页。" >}}
 {{< /cards >}}
 
 {{< cards cols="2" >}}

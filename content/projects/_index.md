@@ -322,8 +322,8 @@ layout: wide
       <p>这里放的是已经能直接打开的远端静态页面。每个项目都配了一张真实预览图，下面按工具、指南和资料入口分组，方便快速回看。</p>
     </div>
     <div class="project-stats" aria-label="项目统计">
-      <div class="project-stat"><strong>3</strong><span>已上线页面</span></div>
-      <div class="project-stat"><strong>2</strong><span>终端指南</span></div>
+      <div class="project-stat"><strong>5</strong><span>已上线页面</span></div>
+      <div class="project-stat"><strong>4</strong><span>网页指南</span></div>
       <div class="project-stat"><strong>1</strong><span>交互工具</span></div>
     </div>
   </section>
@@ -366,12 +366,12 @@ layout: wide
         <div class="project-meta">Terminal Notes</div>
         <h2>终端环境指南</h2>
       </div>
-      <p class="project-section-lead">偏博客分享页，适合给自己和别人当速查入口。</p>
+      <p class="project-section-lead">独立网页指南，适合给自己和别人当速查入口。</p>
     </div>
 
     <div class="project-grid">
       <article class="project-card">
-        <a class="project-shot" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" target="_blank" rel="noreferrer" aria-label="打开 Fish Terminal Setup Guide">
+        <a class="project-shot" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/fish-terminal-setup/" target="_blank" rel="noreferrer" aria-label="打开 Fish Terminal Setup Guide">
           <img src="/images/projects/fish-terminal.png" alt="Fish Terminal Setup Guide 首页截图" loading="eager" decoding="sync">
         </a>
         <div class="project-info">
@@ -383,7 +383,7 @@ layout: wide
           <h3>Fish Terminal Setup Guide</h3>
           <p>从 Terminal-setup 中拆出的 Fish 终端快捷键与环境配置分享页，按范围、接入清单、键盘快捷键和命令捷径整理。</p>
           <div class="project-actions">
-            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/fish-terminal-setup/" target="_blank" rel="noreferrer">访问页面 ↗</a>
             <a class="project-action" href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages" target="_blank" rel="noreferrer">查看源码</a>
           </div>
           <div class="project-note">上游资料来自 Terminal-setup 仓库，页面偏速查和分享。</div>
@@ -391,7 +391,7 @@ layout: wide
       </article>
 
       <article class="project-card">
-        <a class="project-shot project-shot-fit" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer" aria-label="打开 tmux + Ghostty Guide">
+        <a class="project-shot project-shot-fit" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/tmux-ghostty-guide/" target="_blank" rel="noreferrer" aria-label="打开 tmux + Ghostty Guide">
           <img src="/images/projects/tmux-ghostty.png" alt="tmux 与 Ghostty 新手指南预览图" loading="eager" decoding="sync">
         </a>
         <div class="project-info">
@@ -403,10 +403,50 @@ layout: wide
           <h3>tmux + Ghostty Guide</h3>
           <p>面向 Mac + Ghostty 用户的 tmux 入门分享页，用 session / window / pane 三层结构解释终端工作区。</p>
           <div class="project-actions">
-            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/tmux-ghostty-guide-pages/" target="_blank" rel="noreferrer">访问页面 ↗</a>
-            <a class="project-action" href="https://github.com/liyongzheng666/tmux-ghostty-guide-pages" target="_blank" rel="noreferrer">查看源码</a>
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/tmux-ghostty-guide/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages/tree/main/tmux-ghostty-guide" target="_blank" rel="noreferrer">查看源码</a>
           </div>
           <div class="project-note">更像一份可以转发给新手的像素风终端分享稿。</div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <a class="project-shot project-shot-fit" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/codex-terminal-skills/" target="_blank" rel="noreferrer" aria-label="打开 Codex 终端与 Skill 系统学习路线">
+          <img src="/images/projects/codex-terminal-skills.svg" alt="Codex 终端与 Skill 系统学习路线预览图" loading="eager" decoding="sync">
+        </a>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Codex</span>
+            <span class="project-tag">OMX</span>
+            <span class="project-tag">Skills</span>
+          </div>
+          <h3>Codex 终端与 Skill 系统学习路线</h3>
+          <p>系统学习 Codex CLI、oh-my-codex 工作流与 Skill 调用技巧的路线图，包含命令速查、练习计划和提示词模板。</p>
+          <div class="project-actions">
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/codex-terminal-skills/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages/tree/main/codex-terminal-skills" target="_blank" rel="noreferrer">查看源码</a>
+          </div>
+          <div class="project-note">适合把 Codex 终端、Skill、review 与 GitHub 工作流串起来系统练。</div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <a class="project-shot project-shot-fit" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/claude-code-training/" target="_blank" rel="noreferrer" aria-label="打开 Claude Code 命令与操作完整培训">
+          <img src="/images/projects/claude-code-training.svg" alt="Claude Code 命令与操作完整培训预览图" loading="eager" decoding="sync">
+        </a>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Claude Code</span>
+            <span class="project-tag">MCP</span>
+            <span class="project-tag">Hooks</span>
+          </div>
+          <h3>Claude Code 命令与操作完整培训</h3>
+          <p>独立网页形态的 Claude Code 培训页，覆盖 CLI、slash commands、权限模式、上下文管理、MCP、Hooks、Subagents 与日常交付工作流。</p>
+          <div class="project-actions">
+            <a class="project-action project-action-primary" href="https://liyongzheng666.github.io/fish-terminal-setup-guide-pages/claude-code-training/" target="_blank" rel="noreferrer">访问页面 ↗</a>
+            <a class="project-action" href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages/tree/main/claude-code-training" target="_blank" rel="noreferrer">查看源码</a>
+          </div>
+          <div class="project-note">不再作为普通博客文章维护，博客只保留项目入口。</div>
         </div>
       </article>
     </div>
@@ -415,21 +455,21 @@ layout: wide
   <section class="project-section">
     <div class="project-section-head">
       <div>
-        <div class="project-meta">Sources & Backlog</div>
-        <h2>相关仓库与待网页化内容</h2>
+        <div class="project-meta">Sources</div>
+        <h2>统一仓库与上游资料</h2>
       </div>
     </div>
 
     <div class="repo-list">
       <article class="repo-item">
-        <h3>Terminal-setup</h3>
-        <p>macOS 终端环境一键配置脚本，也是 Fish 指南页的上游资料来源。</p>
-        <a href="https://github.com/liyongzheng666/Terminal-setup" target="_blank" rel="noreferrer">查看仓库 ↗</a>
+        <h3>fish-terminal-setup-guide-pages</h3>
+        <p>统一维护 Fish、tmux、Codex、Claude Code 等独立网页指南的 GitHub Pages 仓库。</p>
+        <a href="https://github.com/liyongzheng666/fish-terminal-setup-guide-pages" target="_blank" rel="noreferrer">查看统一仓库 ↗</a>
       </article>
       <article class="repo-item">
-        <h3>claude-</h3>
-        <p>学习资料与本地研究内容，当前没有 GitHub Pages 配置，所以先放进待整理区。</p>
-        <a href="https://github.com/liyongzheng666/claude-" target="_blank" rel="noreferrer">查看仓库 ↗</a>
+        <h3>Terminal-setup</h3>
+        <p>macOS 终端环境一键配置脚本，也是 Fish 指南页的上游资料来源。</p>
+        <a href="https://github.com/liyongzheng666/Terminal-setup" target="_blank" rel="noreferrer">查看上游仓库 ↗</a>
       </article>
     </div>
   </section>

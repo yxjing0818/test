@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code Training preview</title>
+  <desc id="desc">Pixel style preview card for the Claude Code training guide.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#98d8ff"/>
+      <stop offset="0.42" stop-color="#c9efff"/>
+      <stop offset="0.43" stop-color="#f8efc7"/>
+      <stop offset="0.68" stop-color="#f2d28c"/>
+      <stop offset="0.69" stop-color="#7cbc4b"/>
+      <stop offset="1" stop-color="#67a43d"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0v28" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#sky)"/>
+  <rect width="1200" height="750" fill="url(#grid)" opacity=".8"/>
+  <rect x="90" y="80" width="1020" height="590" rx="18" fill="#fff6d8" stroke="#74552c" stroke-width="8"/>
+  <rect x="120" y="118" width="960" height="86" rx="14" fill="#fffcf0" stroke="#74552c" stroke-width="5"/>
+  <rect x="150" y="137" width="54" height="54" rx="8" fill="#ffd982" stroke="#74552c" stroke-width="4"/>
+  <text x="177" y="174" text-anchor="middle" font-family="Monaco,Menlo,monospace" font-size="22" font-weight="700" fill="#352617">CC</text>
+  <text x="230" y="161" font-family="Trebuchet MS,Verdana,sans-serif" font-size="34" font-weight="700" fill="#352617">Claude Code Training</text>
+  <text x="232" y="187" font-family="Monaco,Menlo,monospace" font-size="18" fill="#6c5a42">CLI · Slash commands · MCP · Hooks</text>
+  <rect x="150" y="245" width="500" height="320" rx="18" fill="#fffcf0" stroke="#74552c" stroke-width="6"/>
+  <text x="185" y="320" font-family="Trebuchet MS,Verdana,sans-serif" font-size="76" font-weight="700" fill="#355329">Claude</text>
+  <text x="185" y="405" font-family="Trebuchet MS,Verdana,sans-serif" font-size="76" font-weight="700" fill="#355329">Code</text>
+  <text x="185" y="462" font-family="Trebuchet MS,Verdana,sans-serif" font-size="34" fill="#6c5a42">命令与操作完整培训</text>
+  <rect x="700" y="245" width="350" height="58" rx="10" fill="#1e293b" stroke="#74552c" stroke-width="5"/>
+  <text x="730" y="282" font-family="Monaco,Menlo,monospace" font-size="22" fill="#d1fae5">$ claude</text>
+  <rect x="700" y="325" width="350" height="58" rx="10" fill="#1e293b" stroke="#74552c" stroke-width="5"/>
+  <text x="730" y="362" font-family="Monaco,Menlo,monospace" font-size="22" fill="#d1fae5">/plan</text>
+  <rect x="700" y="405" width="350" height="58" rx="10" fill="#1e293b" stroke="#74552c" stroke-width="5"/>
+  <text x="730" y="442" font-family="Monaco,Menlo,monospace" font-size="22" fill="#d1fae5">/permissions</text>
+  <rect x="700" y="485" width="350" height="58" rx="10" fill="#1e293b" stroke="#74552c" stroke-width="5"/>
+  <text x="730" y="522" font-family="Monaco,Menlo,monospace" font-size="22" fill="#d1fae5">mcp · hooks</text>
+</svg>
